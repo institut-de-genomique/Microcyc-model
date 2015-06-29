@@ -1,6 +1,6 @@
-== PkgDB-model ==
+== Microcyc-model ==
 
-This project provides entities to map PkGDB .
+This project provides entities to map Microcyc .
 
 === Build and install ===
 
