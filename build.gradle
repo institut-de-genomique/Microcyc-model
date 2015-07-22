@@ -1,12 +1,7 @@
-buildscript {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-    }
-    dependencies {
-        classpath   "org.hibernate.gradle.tools:hibernatetools-gradle-plugin:0.1.0"
-    }
+plugins {
+  id "org.hibernate.gradle.tools" version "1.2.2"
 }
+
 apply plugin: "hibernatetools-gradle-plugin"
 apply plugin: 'java'
 apply plugin: 'maven'
@@ -21,6 +16,7 @@ description = projectDescription
 
 repositories {
     mavenCentral()
+    jcenter()
 }
 
 
@@ -33,11 +29,12 @@ dependencies {
     compile 'javax:javaee-api:7.0'
 }
 
+import org.hibernate.gradle.tools.*
+
 database{
-    name        = "microcyc"
-    schema      = "microcyc"
+    catalog = [ "microcyc": new Schema(), "pkgdb_dev": new Schema() ] 
     url         = "jdbc:mysql://mysqlagcdb.genoscope.cns.fr"
-    basePackage = "fr.cea.ig.database.microcyc"
+    basePackage = "fr.cea.ig.database.pkgdb"
 }
 
 jar {
