@@ -1,5 +1,13 @@
-plugins {
-    id "org.hibernate.gradle.tools" version "1.2.4"
+buildscript {
+    repositories {
+        maven {
+            mavenLocal()
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.org.hibernate.gradle.tools:hibernatetools-gradle-plugin:1.2.2"
+    }
 }
 
 apply plugin: "hibernatetools-gradle-plugin"
@@ -15,6 +23,7 @@ group = 'fr.cea.ig'
 description = projectDescription
 
 repositories {
+    mavenLocal()
     mavenCentral()
     jcenter()
 }
